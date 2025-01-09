@@ -2,20 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@import "prism.css";
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("../public/noise.png");
+  background-size: 200px 200px;
+  background-position: 0 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--incognito), "Inter", sans-serif;
+}
+
+.path {
+  stroke-dasharray: 500px 100px;
+  animation: animate 100s linear infinite alternate-reverse;
+}
+
+@keyframes animate {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 12433.8193359375;
+  }
 }
