@@ -7,7 +7,11 @@ export async function getProfile() {
       _id,
       fullName,
       headline,
-      profileImage {alt, "image": asset->url},
+      profileImage {
+        alt, 
+        "image": asset->url,
+        "lqip": asset->metadata.lqip
+      },
       shortBio,
       location,
       fullBio,
@@ -59,3 +63,15 @@ export async function getSingleProject(slug: string) {
     { slug }
   );
 }
+
+export const heroesQuery = async () => {
+  return client.fetch(
+    `*[_type == "heroes"]{
+      _id,
+      _createdAt,
+      name,
+      url,
+      met
+    }`
+  );
+};

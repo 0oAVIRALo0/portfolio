@@ -14,10 +14,30 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+  ),
   title: "Sanity Next.js Portfolio Site",
   description: "A personal portfolio site built with Sanity and Next.js",
   openGraph: {
-    images: "add-your-open-graph-image-url-here",
+    title: "Sanity Next.js Portfolio Site",
+    description: "A personal portfolio site built with Sanity and Next.js",
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Portfolio Open Graph Image",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sanity Next.js Portfolio Site",
+    description: "A personal portfolio site built with Sanity and Next.js",
+    images: [
+      `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/og-image.png`,
+    ],
   },
 };
 

@@ -7,6 +7,7 @@ export type ProfileType = {
   profileImage: {
     alt: string;
     image: string;
+    lqip: string;
   };
   shortBio: string;
   email: string;
@@ -15,6 +16,7 @@ export type ProfileType = {
   resumeURL: string;
   socialLinks: string[];
   skills: string[];
+  usage: PortableTextBlock[];
 };
 
 export type JobType = {
@@ -24,8 +26,8 @@ export type JobType = {
   logo: string;
   url: string;
   description: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate?: string;
 };
 
 export type ProjectType = {
@@ -40,4 +42,12 @@ export type ProjectType = {
     image: string;
   };
   description: PortableTextBlock[];
+};
+
+export type HeroeType = {
+  _id: string;
+  _createdAt: string;
+  name: string;
+  url: string;
+  met: boolean;
 };
