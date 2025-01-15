@@ -99,7 +99,7 @@ export default async function About() {
             <Slide delay={0.2}>
               <section className="mt-5 space-y-4">
                 <h2 className="font-semibold text-4xl text-zinc-100 mb-4">
-                  What I'm Currently Hacking On?
+                  What I&apos;m Currently Hacking On?
                 </h2>
                 <p className="text-zinc-400 max-w-lg leading-relaxed">
                   I&apos;m currently working on a project that combines my

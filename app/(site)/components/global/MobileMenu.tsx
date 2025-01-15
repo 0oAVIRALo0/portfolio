@@ -5,8 +5,8 @@ import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import {
   HiBeaker,
-  HiBookmarkAlt,
-  HiCamera,
+  // HiBookmarkAlt,
+  // HiCamera,
   HiOutlineX,
   HiUser,
 } from "react-icons/hi";

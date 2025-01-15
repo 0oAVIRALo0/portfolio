@@ -4,15 +4,23 @@ import { getSingleProject } from "@/sanity/sanity.query";
 import type { ProjectType } from "@/types";
 import { PortableText } from "@portabletext/react";
 import fallBackImage from "@/public/project.png";
+// import { NextPage } from "next";``
+
+// Params type
+type Params = {
+  project: string;
+};
 
 type Props = {
-  params: {
-    project: string;
-  };
+  params: Params;
 };
 
 // Dynamic metadata for SEO
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
   const slug = params.project;
   const project: ProjectType = await getSingleProject(slug);
 
@@ -27,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Project({ params }: Props) {
+const ProjectPage = async ({ params }: Props) => {
   const slug = params.project;
   const project: ProjectType = await getSingleProject(slug);
 
@@ -62,4 +70,6 @@ export default async function Project({ params }: Props) {
       </div>
     </main>
   );
-}
+};
+
+export default ProjectPage;

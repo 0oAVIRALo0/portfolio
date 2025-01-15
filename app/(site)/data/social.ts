@@ -1,19 +1,19 @@
 import {
-  BiLinkExternal,
-  BiLogoCodepen,
-  BiLogoDribbble,
+  // BiLinkExternal,
+  // BiLogoCodepen,
+  // BiLogoDribbble,
   BiLogoGithub,
-  BiLogoGitlab,
-  BiLogoInstagram,
+  // BiLogoGitlab,
+  // BiLogoInstagram,
   BiLogoLinkedinSquare,
-  BiLogoStackOverflow,
-  BiLogoSteam,
-  BiLogoUnsplash,
-  BiLogoYoutube,
+  // BiLogoStackOverflow,
+  // BiLogoSteam,
+  // BiLogoUnsplash,
+  // BiLogoYoutube,
 } from "react-icons/bi";
-import { FaFreeCodeCamp, FaProductHunt, FaNpm } from "react-icons/fa";
-import { SiCodewars } from "react-icons/si";
-import { FaHashnode, FaHashtag, FaSquareXTwitter } from "react-icons/fa6";
+import { FaNpm } from "react-icons/fa";
+// import { SiCodewars } from "react-icons/si";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 export const socialLinks = [
   {

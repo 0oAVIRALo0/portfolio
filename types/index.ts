@@ -41,7 +41,7 @@ export type ProjectType = {
     alt: string | null;
     image: string;
   };
-  description: PortableTextBlock[];
+  description: any;
 };
 
 export type HeroeType = {
