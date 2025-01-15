@@ -11,7 +11,7 @@ import {
   BiLogoUnsplash,
   BiLogoYoutube,
 } from "react-icons/bi";
-import { FaFreeCodeCamp, FaProductHunt } from "react-icons/fa";
+import { FaFreeCodeCamp, FaProductHunt, FaNpm } from "react-icons/fa";
 import { SiCodewars } from "react-icons/si";
 import { FaHashnode, FaHashtag, FaSquareXTwitter } from "react-icons/fa6";
 
@@ -23,27 +23,27 @@ export const socialLinks = [
     icon: BiLogoGithub,
     status: "social",
   },
-  // {
-  //   id: 2,
-  //   name: "X",
-  //   url: "https://twitter.com/victorekea",
-  //   icon: FaSquareXTwitter,
-  //   status: "social",
-  // },
   {
-    id: 3,
+    id: 2,
     name: "Linkedin",
     url: "https://linkedin.com/in/aviral-chauhan-07a4a82b5",
     icon: BiLogoLinkedinSquare,
     status: "social",
   },
-  // {
-  //   id: 4,
-  //   name: "Codepen",
-  //   url: "https://codepen.io/evavic44",
-  //   icon: BiLogoCodepen,
-  //   status: "social",
-  // },
+  {
+    id: 3,
+    name: "X",
+    url: "https://x.com/aviral_30_",
+    icon: FaSquareXTwitter,
+    status: "social",
+  },
+  {
+    id: 4,
+    name: "npm",
+    url: "https://www.npmjs.com/~aviral30",
+    icon: FaNpm,
+    status: "social",
+  },
   // {
   //   id: 5,
   //   name: "Dribbble",

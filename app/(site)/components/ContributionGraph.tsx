@@ -1,39 +1,29 @@
 "use client";
+
 import { useTheme } from "next-themes";
 import GitHubCalendar from "react-github-calendar";
 import { espionage, github } from "@/app/(site)/data/contribution-graph-theme";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import YearButton from "./shared/YearButton";
 import { getGitHubYears } from "@/app/(site)/utils/calculate-years";
 import EmptyState from "./shared/EmptyState";
 
 export default function ContributionGraph() {
-  const [calendarYear, setCalendarYear] = useState<number | undefined>(
-    undefined
-  );
-  const { theme, systemTheme } = useTheme();
-  const [serverTheme, setServerTheme] = useState<"light" | "dark" | undefined>(
-    undefined
-  );
-  const scheme =
-    theme === "light" ? "light" : theme === "dark" ? "dark" : systemTheme;
-
-  // Set theme only after rendering to avoid mismatch between client and server
-  // https://github.com/vercel/next.js/issues/10608#issuecomment-589073831
-  useEffect(() => {
-    setServerTheme(scheme);
-  }, [scheme]);
+  const { resolvedTheme } = useTheme();
+  const scheme = resolvedTheme === "dark" ? "dark" : "light";
 
   const today = new Date().getFullYear();
-  const username = "0oAVIRALo0";
-  const joinYear = Number(2022);
+  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || "0oAVIRALo0";
+  const joinYear = Number(process.env.NEXT_PUBLIC_GITHUB_JOIN_YEAR || 2022);
   const years = getGitHubYears(joinYear);
+
+  const [calendarYear, setCalendarYear] = useState<number | null>(null);
 
   if (!username || !joinYear)
     return (
       <EmptyState
         title="Unable to load Contribution Graph"
-        message="We could not find any GitHub credentials added to the .env file. To display the graph, provide your username and the year you joined GitHub"
+        message="We could not find GitHub credentials. Please add a username and join year."
       />
     );
 
@@ -43,21 +33,21 @@ export default function ContributionGraph() {
         <GitHubCalendar
           username={username}
           theme={github}
-          colorScheme={serverTheme}
+          colorScheme={scheme}
           blockSize={13}
-          year={calendarYear}
+          year={calendarYear ?? today}
         />
       </div>
       <div className="flex justify-start xl:flex-col flex-row flex-wrap gap-2">
-        {/* Display only the last five years */}
-        {years.slice(0, 4).map((year) => (
+        {years.slice(0, Math.min(4, years.length)).map((year) => (
           <YearButton
             key={year}
             year={year}
             currentYear={calendarYear ?? today}
-            onClick={() =>
-              setCalendarYear(year === calendarYear ? undefined : year)
-            }
+            onClick={() => setCalendarYear(year === calendarYear ? null : year)}
+            tabIndex={0}
+            aria-pressed={calendarYear === year}
+            role="button"
           />
         ))}
       </div>

@@ -19,8 +19,6 @@ export const metadata: Metadata = {
     url: "http://localhost:3000/about",
     description:
       "Learn more about my skills, experience and technical background",
-    // images:
-    //   "https://res.cloudinary.com/victoreke/image/upload/v1692635746/victoreke/og.png",
   },
 };
 
@@ -55,8 +53,8 @@ export default async function About() {
                     <Image
                       className="rounded-2xl mb-4 object-cover max-h-96 min-h-96 bg-top"
                       src={data.profileImage.image}
-                      width={400}
-                      height={400}
+                      width={420}
+                      height={100}
                       quality={100}
                       alt={data.profileImage.alt}
                       placeholder="blur"
@@ -67,7 +65,7 @@ export default async function About() {
                     <div className="flex flex-col text-center gap-y-4">
                       <div className="flex items-center gap-x-3">
                         <RefLink
-                          href=""
+                          href="https://drive.google.com/file/d/1NoFBy1L9b10jQG9N1jgc4727qTH8eePA/view?usp=sharing"
                           className="flex items-center justify-center text-center gap-x-2 basis-[90%] dark:bg-primary-bg bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-2 text-lg font-incognito font-semibold"
                         >
                           View Résumé <BiLinkExternal className="text-base" />
@@ -87,6 +85,7 @@ export default async function About() {
                       <a
                         href={`mailto:${data.email}`}
                         className="flex items-center gap-x-2 hover:text-primary-color"
+                        title={`Send an email to ${data.email}`}
                       >
                         <BiEnvelope className="text-lg" />
                         {data.email}
@@ -98,7 +97,7 @@ export default async function About() {
             </section>
 
             <Slide delay={0.2}>
-              <section className="space-y-4">
+              <section className="mt-5 space-y-4">
                 <h2 className="font-semibold text-4xl text-zinc-100 mb-4">
                   What I'm Currently Hacking On?
                 </h2>
