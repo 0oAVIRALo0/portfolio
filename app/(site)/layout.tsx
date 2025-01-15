@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
   ),
-  title: "Sanity Next.js Portfolio Site",
+  title: "Aviral Chauhan",
   description: "A personal portfolio site built with Sanity and Next.js",
   openGraph: {
-    title: "Sanity Next.js Portfolio Site",
+    title: "Aviral Chauhan Portfolio Site",
     description: "A personal portfolio site built with Sanity and Next.js",
     images: [
       {
